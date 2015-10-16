@@ -3,15 +3,9 @@
     <script src="../src/index.js"></script>
   </head>
   <body>
-    <script src="../src/test-lib.js" async></script>
     <script>
-      lib.init('abc', '123');
-      lib.your('foo', 'bar');
-      lib.public();
-      lib.methods({
-        'foo': 'bar'
-      });
-      lib.here();
+      lib('init', ['123', '123']);
+      lib('track', ['test', '123']);
     </script>
   </body>
 </html>

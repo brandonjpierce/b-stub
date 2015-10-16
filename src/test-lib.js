@@ -1,50 +1,45 @@
 (function(root) {
 
-  function Lib() {}
-
-  Lib.prototype.init = function(alpha, numeric) {
-    // mimic's a functions constructor
-    this.alpha = alpha;
-    this.numeric = numeric;
-
-    console.log('Calling init()');
-    console.log('init() args:', alpha, numeric);
+  function init(foo, bar) {
+    console.log('init() called');
+    console.log('init() args', foo, bar);
   }
 
-  Lib.prototype.your = function(foo, bar) {
-    console.log('Calling your()');
-    console.log('your() args:', foo, bar);
-  };
-
-  Lib.prototype.public = function() {
-    console.log('Calling public()');
+  function track(foo, bar) {
+    console.log('track() called');
+    console.log('track() args', foo, bar);
   }
 
-  Lib.prototype.methods = function(data) {
-    console.log('Calling methods()');
-    console.log('methods() args:', data);
-  }
+  function create() {
+    var lib = {
+      q: root.lib.q || [],
+      state: {},
+      methods: {
+        init: init,
+        track: track
+      }
+    };
 
-  Lib.prototype.here = function() {
-    console.log('Calling here()');
-  }
+    var obj = Object.create(lib.methods);
 
-  // Auto instantiate our class
-  var instance = new Lib();
+    for (var key in lib.state) {
+      obj[key] = lib.state[key];
+    }
 
-  // Check to see if we have a stub queue
-  if (root.lib) {
-    while (root.lib.length) {
-      var data = root.lib.shift();
-      var method = data.shift();
+    if (lib.q.length) {
+      for (var i in lib.q) {
+        var method = lib.q[i].shift();
+        var args = lib.q[i].shift();
 
-      if (instance[method]) {
-        instance[method].apply(instance, data);
+        if (obj[method]) {
+          obj[method].apply(obj, args);
+        }
       }
     }
+
+    return obj;
   }
 
-  // override stub queue with actual library
-  root.lib = Lib;
+  root.lib = create();
 
 })(window);
