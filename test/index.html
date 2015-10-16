@@ -1,0 +1,17 @@
+<html>
+  <head>
+    <script src="../src/index.js"></script>
+  </head>
+  <body>
+    <script src="../src/test-lib.js" async></script>
+    <script>
+      lib.init('abc', '123');
+      lib.your('foo', 'bar');
+      lib.public();
+      lib.methods({
+        'foo': 'bar'
+      });
+      lib.here();
+    </script>
+  </body>
+</html>
