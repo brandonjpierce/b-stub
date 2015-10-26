@@ -67,7 +67,7 @@ if (YourLib.q.length) {
 window.YourLib = instance;
 ```
 
-Check out `test-lib.js` in the test folder to see a full implementation.
+Check out `lib.js` in the test folder to see a full implementation.
 
 ## Does this automatically inject my library?
 
