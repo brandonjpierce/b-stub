@@ -1,0 +1,28 @@
+{
+  "name": "lib-loader",
+  "version": "1.0.0",
+  "description": "A library loader similar to how Google universal analytics works. It will stub method calls and put them in a queue to be called later once the library is loaded in.",
+  "main": "gulpfile.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brandonjpierce/stub-loader.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brandonjpierce/stub-loader/issues"
+  },
+  "homepage": "https://github.com/brandonjpierce/stub-loader#readme",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-insert": "^0.5.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.4.2"
+  }
+}

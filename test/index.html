@@ -1,10 +1,12 @@
 <html>
   <head>
-    <script src="../src/index.js"></script>
+    <script src="../dist/loader.min.js"></script>
+    <script src="lib.js" async defer></script>
   </head>
   <body>
     <script>
       lib('init', ['123', '123']);
+      lib('page');
       lib('track', ['test', '123']);
     </script>
   </body>
